@@ -1,16 +1,17 @@
-local asciitable = require('../luau_packages/asciitable')
-local consoleType = require('./type')
-local chalk = require('../luau_packages/chalk_luau')
-local format = require('./format')
-
 local isRoblox = game and true or false
 local isLune = (_VERSION :: string):sub(1, 4) == "Lune"
-local isLuau = not (isLune or isRoblox)
 
-export type ConsoleImpl = consoleType.ConsoleImpl
+export type ConsoleImpl = {
+    __index: ConsoleImpl,
+    log: (data: any, ...any) -> (),
+    error: (data: any, ...any) -> (),
+    warn: (data: any, ...any) -> (),
+}
 
-local console = {} :: ConsoleImpl
-console.__index = console
-
-
-return console
+return (if isRoblox then 
+        require(script:WaitForChild('console'):WaitForChild('robloxConsole')) :: any 
+    elseif isLune then
+        require('./console/luneConsole') :: any
+    else
+        require('./console/luauConsole') :: any
+) :: ConsoleImpl

@@ -1,8 +1,8 @@
 export type ConsoleImpl = {
     __index: ConsoleImpl,
-    assert: (value: any, ...any) -> (),
-    log: (...any) -> (),
-    error: (...any) -> (),
+    log: (data: any, ...any) -> (),
+    error: (data: any, ...any) -> (),
+    warn: (data: any, ...any) -> (),
 }
 
 return {}
