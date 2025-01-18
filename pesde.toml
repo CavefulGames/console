@@ -1,0 +1,20 @@
+name = "caveful_games/console"
+version = "0.1.0"
+description = "luau | lune | roblox all using console lib"
+authors = ["[ 'sunwoo (kimpure)' ]"]
+repository = "https://github.com/CavefulGames/console"
+license = "MIT"
+includes = ["src", "readme.md", "license.md", "pesde.toml"]
+
+[target]
+environment = "luau"
+lib = "src/init.luau"
+build_files = ["src"]
+
+[indices]
+default = "https://github.com/pesde-pkg/index"
+
+[dependencies]
+asciitable = { name = "kimpure/asciitable", version = "^0.2.1" }
+chalk_luau = { name = "kimpure/chalk_luau", version = "^0.1.1" }
+
