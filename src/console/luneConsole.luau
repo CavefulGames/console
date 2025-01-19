@@ -1,5 +1,5 @@
 local chalk_luau = require('../../luau_packages/chalk_luau')
-local consoleType = require('../type')
+local consoleType = require('../types/luauType')
 local format = require('../format')
 local stdio = require('@lune/stdio')
 

@@ -1,4 +1,4 @@
-local consoleType = require(script.Parent.Parent:WaitForChild('type'))
+local consoleType = require(script.Parent.Parent:WaitForChild('types'):WaitForChild('robloxType'))
 
 local luneConsole = {} :: consoleType.ConsoleImpl
 luneConsole.__index = luneConsole

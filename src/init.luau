@@ -1,17 +1,13 @@
 local isRoblox = game and true or false
 local isLune = (_VERSION :: string):sub(1, 4) == "Lune"
 
-export type ConsoleImpl = {
-    __index: ConsoleImpl,
-    log: (data: any, ...any) -> (),
-    error: (data: any, ...any) -> (),
-    warn: (data: any, ...any) -> (),
-}
+if isRoblox then
+    local robloxConsoleType = require(script:WaitForChild('types'):WaitForChild('robloxType'))
+    return require(script:WaitForChild('console'):WaitForChild('robloxConsole')) :: robloxConsoleType.ConsoleImpl
+end
 
-return (if isRoblox then 
-        require(script:WaitForChild('console'):WaitForChild('robloxConsole')) :: any 
-    elseif isLune then
-        require('./console/luneConsole') :: any
+local luauConsoleType = require('./types/luauType')
+return if isLune then
+        require('./console/luneConsole') :: luauConsoleType.ConsoleImpl
     else
-        require('./console/luauConsole') :: any
-) :: ConsoleImpl
+        require('./console/luauConsole') :: luauConsoleType.ConsoleImpl

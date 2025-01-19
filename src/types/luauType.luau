@@ -4,5 +4,4 @@ export type ConsoleImpl = {
     error: (data: any, ...any) -> (),
     warn: (data: any, ...any) -> (),
 }
-
 return {}
