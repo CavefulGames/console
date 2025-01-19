@@ -4,7 +4,7 @@ local colors = {
 	red = chalk.red,
 	green = chalk.green,
 	yello = chalk.yellow,
-	white = chalk.white,
+	white = chalk.rgb(204, 204, 204),
 	bold = chalk.bold,
 }
 
@@ -58,8 +58,12 @@ local function nomalTypeColor(nomal: any, useTable: boolean?): string
 	)
 end
 
-local function no(a)
-	return a
+local function stringPrototypeRepeatFormat(str: string, num: number)
+    local result = ''
+    for i=1, num do
+        result ..= str
+    end
+    return result
 end
 
 local function get_object_or_array_len(arrOrObj)
@@ -151,4 +155,5 @@ return {
 	tableColorFormatStruct = tableColorFormatStruct,
 	formatColorText = formatColorText,
 	formatColorTextWithSelectColor = formatColorTextWithSelectColor,
+	stringPrototypeRepeatFormat=stringPrototypeRepeatFormat,
 }

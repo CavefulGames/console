@@ -1,7 +1,6 @@
 local consoleType = require(script.Parent.Parent:WaitForChild('type'))
 
 local luneConsole = {} :: consoleType.ConsoleImpl
-luneConsole.__index = luneConsole
 
 function luneConsole.log(...)
     print(...)

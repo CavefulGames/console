@@ -3,7 +3,6 @@ local consoleType = require('../type')
 local format = require('../format')
 
 local luauConsole = {} :: consoleType.ConsoleImpl
-luauConsole.__index = luauConsole
 
 function luauConsole.log(...)
     local args = table.pack(...)
